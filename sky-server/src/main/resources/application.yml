@@ -18,7 +18,7 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.sky.entity
   configuration:
-    #开启驼峰命名
+    #开启驼峰命名，MyBatis就会在查询时自动将数据库中下划线命名的列名转换为Java对象中的驼峰命名属性。
     map-underscore-to-camel-case: true
 
 logging:
