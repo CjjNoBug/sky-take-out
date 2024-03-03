@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.SetmealDishMapper">
+
+    <!--    在插入之后将主键值返回，从而获取到DishId id是指将返回的主键值赋值给传入的对象dish中的id去-->
+
+    <select id="getSetmealIdByDishIds" resultType="java.lang.Long">
+
+        select setmeal_id from setmeal_dish where dish_id in
+        <foreach collection="dishIds" item="dishId" separator="," close="(" open=")">
+            #{dishId}
+        </foreach>
+    </select>
+</mapper>
